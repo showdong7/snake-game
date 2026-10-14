@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>貪食蛇 Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>🐍 貪食蛇</h1>
+      <p class="subtitle">Snake Game — 無資料庫，開啟即玩</p>
+    </header>
+
+    <section class="scoreboard" aria-label="分數">
+      <div class="score-card">
+        <span class="label">分數</span>
+        <span id="score" class="value">0</span>
+      </div>
+      <div class="score-card">
+        <span class="label">最高分</span>
+        <span id="highScore" class="value">0</span>
+      </div>
+      <div class="score-card">
+        <span class="label">長度</span>
+        <span id="length" class="value">3</span>
+      </div>
+      <div class="score-card">
+        <span class="label">速度</span>
+        <span id="speed" class="value">1x</span>
+      </div>
+    </section>
+
+    <div class="game-wrap">
+      <canvas id="gameCanvas" width="400" height="400" aria-label="貪食蛇遊戲畫面"></canvas>
+      <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <h2 id="overlayTitle">準備開始</h2>
+          <p id="overlayText">按「開始遊戲」或按空白鍵開始<br>方向鍵 / WASD 移動，手機可滑動或用下方按鈕</p>
+          <button id="overlayBtn" class="btn btn-primary">開始遊戲</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn" class="btn btn-primary">▶ 開始</button>
+      <button id="pauseBtn" class="btn">⏸ 暫停</button>
+      <button id="restartBtn" class="btn">↻ 重新開始</button>
+      <label class="difficulty">
+        難度
+        <select id="difficulty">
+          <option value="easy">簡單</option>
+          <option value="normal" selected>普通</option>
+          <option value="hard">困難</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="pad" aria-label="手機方向鍵">
+      <button data-dir="up" class="pad-btn pad-up">▲</button>
+      <button data-dir="left" class="pad-btn">◀</button>
+      <button data-dir="down" class="pad-btn">▼</button>
+      <button data-dir="right" class="pad-btn">▶</button>
+    </div>
+
+    <footer class="help">
+      <p>操作：↑↓←→ / WASD 移動 · 空白鍵 開始/暫停 · 吃到 🍎 得 10 分，每 5 顆加速一次 · 撞牆或撞到自己結束</p>
+      <p class="muted">最高分僅存於瀏覽器 localStorage，不使用任何資料庫或後端。</p>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
